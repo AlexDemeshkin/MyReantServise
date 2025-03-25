@@ -10,6 +10,7 @@ import { PrivateRoute } from "../private-route/private-route";
 import { AutorizationStatus } from "../../const";
 import { FullOffer, OffersList } from "../../types/offer";
 import { Review } from "../../types/review";
+
 type AppMainPageProps={
     rentalOffersCount: number;
     offersList : OffersList[]
