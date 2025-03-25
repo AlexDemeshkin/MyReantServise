@@ -4,7 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import useMap from '../useMap/useMap';
 import {URL_MARKER_DEFAULT, URL_MARKER_CURRENT} from '../../const';
 import { City, Points } from '../../types/map';
-// import '../../../public/css/map.css'
 type MapProps = {
   city: City;
   points: Points[];
