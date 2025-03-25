@@ -7,9 +7,11 @@ type FavoritesCardProps = {
   title: string;
   type : string;
   price : number;
+  city: string;
   isPremium: boolean;
   previewImage : string;
   rating: number;
+  isFavorite: boolean;
 }
 
 
