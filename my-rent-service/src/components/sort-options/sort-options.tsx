@@ -1,7 +1,7 @@
 import { SortOffersType } from "../../const";
 import { useState, KeyboardEvent } from "react";
 import classNames from 'classnames'
-import { SortOffer } from "../../types/sort";
+import { SortOffer } from "../../types/sort.ts";
 
 type SortPalcesProps ={
     activeSorting : SortOffer;

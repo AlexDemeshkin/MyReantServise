@@ -8,8 +8,8 @@ import MapList from "../../components/mapList/mapList.tsx";
 import { useAppSelector } from "../../hooks/index.ts";
 import { CitiesList } from "../../components/citiesList/citiesList";
 import { getOffersByCity, SortOffersByType } from "../../utils";
-import { SortOptions } from "../../components/sort-options/sort-options.tsx";
-import { SortOffer } from "../../types/sort.ts";
+import { SortOptions } from "../../components/sort-options/sort-options";
+import { SortOffer } from "../../types/sort";
 
 
 function MainPage(): JSX.Element {
