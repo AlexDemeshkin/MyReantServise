@@ -16,18 +16,18 @@ type AppMainPageProps={
     offersList : OffersList[]
     offers: FullOffer[];
     reviewsList : Review[];
-    
+    reviewsOffersCount: number
 }
 
 
 
-function App({rentalOffersCount, offers,offersList,reviewsList}: AppMainPageProps): JSX.Element{
+function App({ offers,offersList,reviewsList,reviewsOffersCount}: AppMainPageProps): JSX.Element{
   return(
     <BrowserRouter>
       <Routes>  
-        <Route path={AppRoute.Main} element={<MainPage rentalOffersCount={rentalOffersCount} offersList={ offersList } />} />
+        <Route path={AppRoute.Main} element={<MainPage />} />
         <Route path={AppRoute.Login} element={<LoginPage/>} />
-        <Route path={`${AppRoute.Offer}/:id`} element={<OfferPage  offers={offers} reviewsList={reviewsList} offersList={ offersList }/>} />
+        <Route path={`${AppRoute.Offer}/:id`} element={<OfferPage  offers={offers} reviewsList={reviewsList} offersList={ offersList } reviewsOffersCount={reviewsOffersCount}/>} />
         <Route path={AppRoute.Favorites} 
           element={
             <PrivateRoute
