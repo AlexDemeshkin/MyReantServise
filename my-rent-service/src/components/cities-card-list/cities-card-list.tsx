@@ -1,8 +1,8 @@
-import { OfferList } from "../../types/offer";
+import { OffersList } from "../../types/offer";
 import CitiesCard from "../cities-card/cities-card";
 
 type CitiesCardListProps = {
-    offersList : OfferList[];
+    offersList : OffersList[];
 };
 
 function CitiesCardList ({offersList} : CitiesCardListProps ){
