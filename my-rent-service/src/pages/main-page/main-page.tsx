@@ -6,10 +6,11 @@ import { OffersList } from "../../types/offer.ts";
 import Map from "../../components/map/map.tsx";
 import MapList from "../../components/mapList/mapList.tsx";
 import { useAppSelector } from "../../hooks/index.ts";
-import { CitiesList } from "../../components/citiesList/citiesList";
-import { getOffersByCity, SortOffersByType } from "../../utils";
-import { SortOptions } from "../../components/sort-options/sort-options";
-import { SortOffer } from "../../types/sort";
+import { CitiesList } from "../../components/citiesList/citiesList.tsx";
+import { getOffersByCity, SortOffersByType } from "../../utils.ts";
+import { SortOptions } from "../../components/sort-options/sort-options.tsx";
+import { SortOffer } from "../../types/sort.ts";
+import MainEmpty from "../../components/main-empty/main-empty.tsx";
 
 
 function MainPage(): JSX.Element {
@@ -29,7 +30,6 @@ function MainPage(): JSX.Element {
 
   const handleListItemHover = (offerId : string) =>{
     const currentOffer = selectedcityOffers.find((offer) => offer.title === offerId);
-    console.log(offerId)
     setSelectedOffer(currentOffer || null)
     
   }
@@ -73,25 +73,30 @@ function MainPage(): JSX.Element {
           </section>
         </div>
         <div className="cities">
-          <div className="cities__places-container container">
+          {rentalOffersCount === 0 ?(
+            <MainEmpty/>
+          ) : (
+            <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{rentalOffersCount} places to stay in {selectedCity?.name}</b>
               <SortOptions activeSorting={activeSort} onChange={(newSorting) => setActiveSort(newSorting)}/>
               <CitiesCardList offersList={ SortOffersByType(selectedcityOffers, activeSort) }/>
             </section>
-            <div className="cities__right-section">
+            <div className="cities__right-section-map">
               <section className="cities__map">
                 <h1>Аппартоменты города {selectedCity?.name}:</h1>
                 <MapList points={selectedcityOffers}  onListItemHover={handleListItemHover}/>
                 <Map city={selectedCity}
                 points={selectedcityOffers}
                 selectedPoint={selectedOffer}
-                
-                  />
+                />
               </section>
             </div>
           </div>
+          )
+        }
+
         </div>
       </main>
     </div>
