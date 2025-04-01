@@ -30,12 +30,10 @@ function OfferPage({offers,reviewsList,offersList, reviewsOffersCount}  : OfferP
 
   const handleListItemHover = (offerId: string) => {
     const currentPoint = offersList.find((offer) => offer.title === offerId);
-    console.log(offerId)
 
     setSelectedPoint(currentPoint || null);
   };
     
-    console.log(offer)
     if (!offer){
       return <ErrorPage/>
     }
